@@ -1,0 +1,42 @@
+/* public/css/styles.css */
+
+/* Definir los colores primarios de tu aplicación */
+:root {
+    --primary-color: #007bff; /* Cambia este valor según el color primario que prefieras */
+    --secondary-color: #6c757d; /* Color secundario */
+    --background-color: #f8f9fa; /* Color de fondo */
+    --text-color: #343a40; /* Color de texto principal */
+    --button-primary-color: #28a745; /* Color para botones principales */
+    --button-secondary-color: #ffc107; /* Color para botones secundarios */
+}
+
+/* styles.css */
+
+/* Estilo de fondo */
+body {
+    background-color: #d4edda; /* Verde pantano pastel */
+}
+
+/* Ajustes para la tarjeta */
+.card {
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Botón */
+.btn-primary {
+    background-color: #28a745; /* Color verde */
+    border: none; /* Sin borde */
+}
+
+.btn-primary:hover {
+    background-color: #218838; /* Color verde oscuro al pasar el mouse */
+}
+
+/* Responsividad */
+@media (max-width: 576px) {
+    .card {
+        width: 90%; /* Ancho del 90% en pantallas pequeñas */
+    }
+}
