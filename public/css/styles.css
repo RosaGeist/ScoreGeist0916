@@ -1,0 +1,49 @@
+/* styles.css */
+
+body {
+    background-color: #d4edda; /* Verde pantano pastel */
+}
+
+/* Estilos para el menú */
+.menu__side {
+    border-right: 1px solid #dee2e6; /* Línea de separación */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    overflow-y: auto; /* Habilitar scroll si es necesario */
+}
+
+/* Otras configuraciones de estilo como sombras, bordes, etc. */
+.card {
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #28a745; /* Color verde */
+}
+
+.btn-primary:hover {
+    background-color: #218838; /* Color verde oscuro al pasar el mouse */
+}
+
+/* Opciones de menú */
+.options__menu .option {
+    display: flex; /* Para alinear icono y texto */
+    align-items: center; /* Centrar verticalmente */
+    color: #333; /* Color del texto */
+}
+
+.options__menu .option:hover {
+    background-color: #e2e6ea; /* Color de fondo al pasar el mouse */
+}
+
+/* Responsividad */
+@media (max-width: 576px) {
+    .menu__side {
+        min-width: 100%; /* Ancho del menú en móviles */
+        position: absolute; /* Para que el menú se superponga */
+        z-index: 1000; /* Asegúrate que el menú esté encima */
+    }
+}
+

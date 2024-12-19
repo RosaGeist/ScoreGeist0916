@@ -1,0 +1,270 @@
+/* Variables globales */
+:root {
+    --primary-color: #5CCFCF;
+    --secondary-color: #FFD68A;
+    --accent-color: #FF6B6B;
+    --background-color: #FFFFFF;
+    --text-color: #2C3E50;
+    --light-text: #34495E;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset y estilos base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Header */
+header {
+    background-color: var(--background-color);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header img {
+    height: 40px;
+    width: auto;
+}
+
+.header-link {
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.header-link:hover {
+    background-color: #4BBEBD;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 120px 20px 60px;
+    text-align: center;
+    background: linear-gradient(135deg, #F8FDFF 0%, #F5F7FA 100%);
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+h1 {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-description {
+    font-size: clamp(16px, 3vw, 20px);
+    color: var(--light-text);
+    margin-bottom: 30px;
+}
+
+/* Features Section */
+.features-section {
+    padding: 60px 20px;
+    background-color: white;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card h3 {
+    font-size: clamp(20px, 4vw, 24px);
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.feature-card p {
+    color: var(--light-text);
+    font-size: clamp(14px, 2vw, 16px);
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: clamp(16px, 3vw, 20px);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+    max-width: 100%;
+    white-space: nowrap;
+}
+
+.cta-button:hover {
+    background-color: #4BBEBD;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background-color: #F8FAFC;
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--light-text);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 100px 15px 40px;
+    }
+    
+    .features-section {
+        padding: 40px 15px;
+    }
+    
+    .feature-card {
+        padding: 20px;
+    }
+    
+    .header-link,
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px 15px;
+    }
+    
+    header img {
+        height: 30px;
+    }
+    
+    .header-link {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Estilo del botón hamburguesa */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 2000;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: var(--text-color);
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+/* Estilo para el menú de navegación */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    padding: 10px 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* Mostrar el menú en pantallas pequeñas */
+@media (max-width: 768px) {
+    #nav-links {
+        position: absolute;
+        top: 60px; /* Ajusta según la altura de tu header */
+        left: 0;
+        width: 100%;
+        background-color: var(--background-color);
+        box-shadow: var(--shadow);
+        display: none; /* Ocultar por defecto */
+    }
+
+    #nav-links.d-block {
+        display: block; /* Mostrar cuando esté activo */
+    }
+}
+
+.sidebar {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.sidebar-heading {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: #007bff; /* Color del enlace activo */
+}
+
+.nav-link:hover {
+    color: #0056b3; /* Color del enlace al pasar el ratón */
+}
+
