@@ -1,0 +1,70 @@
+# Instrucciones de instalacion ScoreGeist0916
+
+## 1. Clonar el repositorio
+git clone https://github.com/tuUsuario/ScoreGeist0916.git
+
+cd ScoreGeist0916
+
+## 2. Instalar las dependencias del proyecto
+# Instalar Composer si no está instalado
+sudo apt update
+sudo apt install -y composer
+
+# Instalar dependencias con Composer
+composer install
+
+## 3. Configurar el entorno
+# Copiar el archivo de configuración .env
+cp .env.example .env
+
+# Establecer las configuraciones del archivo .env
+sed -i 's/APP_KEY=.*$/APP_KEY=base64:r\/MRAuCluROOn5CSzNf9xYjCmMZGlff5ptp3AyVxQJo=/' .env
+
+## 4. Configurar la base de datos
+# Crear la base de datos (asegúrate de que MySQL o MariaDB esté instalado)
+sudo mysql -u root -p
+CREATE DATABASE bd_tis;
+
+# Configurar el archivo .env con los detalles de la base de datos
+sed -i 's/DB_CONNECTION=.*/DB_CONNECTION=mysql/' .env
+sed -i 's/DB_HOST=.*/DB_HOST=127.0.0.1/' .env
+sed -i 's/DB_PORT=.*/DB_PORT=3306/' .env
+sed -i 's/DB_DATABASE=.*/DB_DATABASE=bd_tis/' .env
+sed -i 's/DB_USERNAME=.*/DB_USERNAME=root/' .env
+sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=/' .env
+
+# Intentar realizar las migraciones de la base de datos
+php artisan migrate || echo "Las migraciones fallaron. Importaremos la base de datos directamente."
+
+# Si las migraciones fallan, importar la base de datos desde un archivo SQL
+mysql -u root -p bd_tis < database/backup.sql
+
+## 5. Configurar los permisos
+# Otorgar permisos al almacenamiento y los recursos públicos
+sudo chown -R www-data:www-data storage bootstrap/cache
+
+## 6. Servir la aplicación
+# Iniciar el servidor de desarrollo
+php artisan serve
+
+# Visita http://localhost:8000 en tu navegador para ver la aplicación
+
+## 7. Instalación de dependencias de Frontend
+# Instalar npm si no está instalado
+sudo apt install -y npm
+
+# Instalar dependencias de npm
+npm install
+
+# Compilar los assets CSS/JavaScript
+npm run dev
+
+## 8. Configurar usuario de administración y otros
+# Usuario de administrador:
+# Correo: admin@dominio.com
+# Contraseña: admin123
+
+# Otros usuarios:
+# Correo: docente@gmail.com
+# Correo: quispe@gmail.com
+# Contraseña: mysql1612
